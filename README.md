@@ -39,4 +39,4 @@ npm run dev
 
 ## Paquetes usados para Postgres de Vercel
 
-- `@vercel/postgres`
+- `pg`

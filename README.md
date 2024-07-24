@@ -1,11 +1,11 @@
-## Crear base de datos
+## Crear base de datos y lanzar aplicación
 
 **Pasos**
 
 1. Entrar en la siguiente carpeta:
 
 ```sh
-cd src/database
+cd src
 ```
 
 2. Crear archivo `.env`:
@@ -27,30 +27,14 @@ El formato de la URL es el siguiente `POSTGRES_URL="postgres://usuario:password@
 4. Ejecutar script:
 
 ```sh
-npm run db
+npm run seed
 ```
 
-## Configurar aplicación
-
-> **IMPORTANTE**: Para que la aplicación funcione correctamente, deberás configuar también el archivo `.env` situado en la carpeta raíz del proyecto, es decir en la carpeta donde tenemos el `README.md`
-
-Sigue los siguientes pasos, esta vez en la carpeta raíz del proyecto:
-
-1. Crear archivo `.env`:
+4. Lanzar aplicación:
 
 ```sh
-mv .env.example  .env
-nano  .env
+npm run dev
 ```
-
-2. Completar la URL de tu base de datos en Vercel:
-
-```
-POSTGRES_URL="postgres://..."
-```
-
-El formato de la URL es el siguiente `POSTGRES_URL="postgres://usuario:password@host:5432/basedatos"`
-
 
 
 ## Paquetes usados para Postgres de Vercel

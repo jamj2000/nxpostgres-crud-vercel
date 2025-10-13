@@ -1,20 +1,10 @@
 'use server'
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
 
-export async function getArticulos() {
-  try {
-    const { rows } = await sql`select * from articulos;`
-    return rows;
-  } catch (error) {
-    // console.log(error);  
-    return null;
-  }
-}
 
-export async function newArticulo(formData) {
+export async function newArticulo(prevState, formData) {
   try {
     const nombre = formData.get('nombre');
     const descripcion = formData.get('descripcion');
@@ -24,15 +14,18 @@ export async function newArticulo(formData) {
     insert into articulos(nombre,descripcion,precio) values (${nombre}, ${descripcion}, ${precio});
     `
     console.log(results);
-    revalidatePath('/articulos')
+
+    revalidatePath('/articulos');
+    return { success: 'Operación exitosa' }
   } catch (error) {
     console.log(error);
   }
-  redirect('/articulos');
+
 }
 
 
-export async function editArticulo(formData) {
+
+export async function editArticulo(prevState, formData) {
   const id = formData.get('id')
   const nombre = formData.get('nombre')
   const descripcion = formData.get('descripcion')
@@ -43,23 +36,28 @@ export async function editArticulo(formData) {
     update articulos set nombre=${nombre}, descripcion=${descripcion}, precio=${precio} where id = ${id};
     `
     console.log(results);
-    revalidatePath('/articulos')
+
+    revalidatePath('/articulos');
+    return { success: 'Operación exitosa' }
   } catch (error) {
     console.log(error);
   }
-  redirect('/articulos');
+
 }
 
-export async function deleteArticulo(formData) {
+
+
+export async function deleteArticulo(prevState, formData) {
   try {
     const id = formData.get('id');
 
     const results = await sql`delete from articulos where id = ${id};`
     console.log(results);
-    revalidatePath('/articulos')
+
+    revalidatePath('/articulos');
+    return { success: 'Operación exitosa' }
   } catch (error) {
     console.log(error);
   }
 
-  redirect('/articulos');
 }

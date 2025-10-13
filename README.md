@@ -1,41 +1,26 @@
-## Crear base de datos y lanzar aplicación
+# Operaciones CRUD en base de datos
 
-**Pasos**
+Para probar la aplicación en un entorno local sigue los siguientes pasos:
 
-1. Entrar en la siguiente carpeta:
+1. **Configura URL de base de datos en archivo .env**
 
-```sh
-cd src
-```
-
-2. Crear archivo `.env`:
+2. **Instala dependencias**
 
 ```sh
-mv .env.example  .env
-nano  .env
+npm  install
 ```
 
-3. Completar la URL de tu base de datos en Vercel:
-
-```
-POSTGRES_URL="postgres://..."
-```
-
-El formato de la URL es el siguiente `POSTGRES_URL="postgres://usuario:password@host:5432/basedatos"`
-
-
-4. Ejecutar script:
+3. **Introduce datos de prueba**
 
 ```sh
-npm run seed
+npm  run  seed
 ```
 
-4. Lanzar aplicación:
+4. **Ejecuta entorno de desarrollo**
 
 ```sh
-npm run dev
+npm  run  dev
 ```
-
 
 ## Paquetes usados para Postgres de Vercel
 

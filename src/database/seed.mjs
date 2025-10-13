@@ -16,8 +16,8 @@ const load = async () => {
         result = await sql`
         INSERT INTO articulos (nombre, descripcion, precio)
         VALUES 
-           ('PC', 'Ordenador de sobremesa', 999.99),
-           ('Impresora', 'Impresora Epson', 55.99),
+           ('PC', 'Ordenador de sobremesa', 1999.99),
+           ('Impresora', 'Impresora Epson', 155.99),
            ('Teclado', 'Teclado USB', 19.91);
         `;
         console.log("Insertados varios artículos");
